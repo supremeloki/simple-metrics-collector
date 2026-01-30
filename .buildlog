@@ -2,3 +2,4 @@
 2026-01-28T22:11:55 add pyproject and license
 2026-01-29T21:40:18 bootstrap package skeleton
 2026-01-30T21:49:07 harden validation paths
+2026-01-30T22:02:17 refactor module boundaries

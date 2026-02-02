@@ -5,3 +5,4 @@
 2026-01-30T22:02:17 refactor module boundaries
 2026-01-31T19:43:27 wire internal state machine
 2026-02-01T14:02:49 introduce typed error hierarchy
+2026-02-02T17:24:17 extract result type

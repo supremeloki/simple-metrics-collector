@@ -8,3 +8,29 @@ from dataclasses import dataclass, field
 
 
 class MetricsError(Exception):
+    pass
+
+
+class UnknownMetricError(MetricsError):
+    def __init__(self, name: str) -> None:
+        super().__init__(f"unknown metric: {name!r}")
+
+
+class MetricTypeError(MetricsError):
+    def __init__(self, name: str, expected: str) -> None:
+        super().__init__(f"metric {name!r} is not a {expected}")
+
+
+@dataclass(frozen=True)
+class CounterSummary:
+    name: str
+    value: float
+
+    @property
+    def kind(self) -> str:
+        return "counter"
+
+
+@dataclass(frozen=True)
+class GaugeSummary:
+    name: str

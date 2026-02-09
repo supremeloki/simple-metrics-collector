@@ -34,3 +34,5 @@ class CounterSummary:
 @dataclass(frozen=True)
 class GaugeSummary:
     name: str
+    value: float
+    last_updated_at: float

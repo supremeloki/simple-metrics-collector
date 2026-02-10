@@ -36,3 +36,6 @@ class GaugeSummary:
     name: str
     value: float
     last_updated_at: float
+
+    @property
+    def kind(self) -> str:

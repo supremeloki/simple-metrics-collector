@@ -39,3 +39,5 @@ class GaugeSummary:
 
     @property
     def kind(self) -> str:
+        return "gauge"
+

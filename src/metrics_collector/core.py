@@ -41,3 +41,6 @@ class GaugeSummary:
     def kind(self) -> str:
         return "gauge"
 
+
+@dataclass(frozen=True)
+class HistogramSummary:

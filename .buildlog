@@ -15,3 +15,4 @@
 2026-02-09T14:19:21 harden validation paths pt2
 2026-02-10T14:02:35 wire internal state machine pt2
 2026-02-11T19:02:47 introduce typed error hierarchy pt2
+2026-02-12T20:58:33 handle empty input edge case pt2

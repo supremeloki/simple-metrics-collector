@@ -44,3 +44,5 @@ class GaugeSummary:
 
 @dataclass(frozen=True)
 class HistogramSummary:
+    name: str
+    count: int

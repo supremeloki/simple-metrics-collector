@@ -46,3 +46,6 @@ class GaugeSummary:
 class HistogramSummary:
     name: str
     count: int
+    total: float
+    mean: float
+    median: float

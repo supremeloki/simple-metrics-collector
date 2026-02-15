@@ -49,3 +49,5 @@ class HistogramSummary:
     total: float
     mean: float
     median: float
+    p95: float
+    p99: float

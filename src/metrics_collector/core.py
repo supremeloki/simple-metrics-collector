@@ -51,3 +51,6 @@ class HistogramSummary:
     median: float
     p95: float
     p99: float
+    minimum: float
+    maximum: float
+

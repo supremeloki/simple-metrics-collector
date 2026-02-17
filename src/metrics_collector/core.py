@@ -54,3 +54,5 @@ class HistogramSummary:
     minimum: float
     maximum: float
 
+    @property
+    def kind(self) -> str:

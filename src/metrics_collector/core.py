@@ -56,3 +56,6 @@ class HistogramSummary:
 
     @property
     def kind(self) -> str:
+        return "histogram"
+
+

@@ -59,3 +59,5 @@ class HistogramSummary:
         return "histogram"
 
 
+class MetricsCollector:
+    def __init__(self, clock: Callable[[], float] | None = None) -> None:

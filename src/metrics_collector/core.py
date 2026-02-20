@@ -61,3 +61,6 @@ class HistogramSummary:
 
 class MetricsCollector:
     def __init__(self, clock: Callable[[], float] | None = None) -> None:
+        self._clock = clock or time.time
+        self._counters: dict[str, float] = defaultdict(float)
+        self._gauges: dict[str, tuple[float, float]] = {}

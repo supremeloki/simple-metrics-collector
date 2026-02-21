@@ -24,3 +24,4 @@
 2026-02-18T13:18:45 wire async handlers
 2026-02-19T22:59:37 add streaming path
 2026-02-20T23:53:29 implement cache layer
+2026-02-21T22:07:01 expose metrics hooks

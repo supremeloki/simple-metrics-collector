@@ -64,3 +64,5 @@ class MetricsCollector:
         self._clock = clock or time.time
         self._counters: dict[str, float] = defaultdict(float)
         self._gauges: dict[str, tuple[float, float]] = {}
+        self._histograms: dict[str, list[float]] = defaultdict(list)
+

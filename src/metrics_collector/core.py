@@ -66,3 +66,6 @@ class MetricsCollector:
         self._gauges: dict[str, tuple[float, float]] = {}
         self._histograms: dict[str, list[float]] = defaultdict(list)
 
+    def inc(self, name: str, amount: float = 1.0) -> float:
+        if amount < 0:
+            raise MetricsError("counter increments must be non-negative")

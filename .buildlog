@@ -26,3 +26,4 @@
 2026-02-20T23:53:29 implement cache layer
 2026-02-21T22:07:01 expose metrics hooks
 2026-02-22T18:45:42 extend public api surface
+2026-02-23T09:45:01 add cli entrypoint

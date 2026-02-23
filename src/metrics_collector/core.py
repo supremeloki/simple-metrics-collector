@@ -69,3 +69,6 @@ class MetricsCollector:
     def inc(self, name: str, amount: float = 1.0) -> float:
         if amount < 0:
             raise MetricsError("counter increments must be non-negative")
+        self._counters[name] += amount
+        return self._counters[name]
+

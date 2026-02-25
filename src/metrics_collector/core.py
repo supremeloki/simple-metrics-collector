@@ -74,3 +74,6 @@ class MetricsCollector:
 
     def gauge(self, name: str, value: float) -> float:
         stamped = (value, self._clock())
+        self._gauges[name] = stamped
+        return value
+

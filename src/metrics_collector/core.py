@@ -79,3 +79,6 @@ class MetricsCollector:
 
     def observe(self, name: str, value: float) -> int:
         if isinstance(value, bool) or not isinstance(value, (int, float)):
+            raise MetricsError(f"observation must be numeric, got {type(value).__name__}")
+        if math.isnan(value) or math.isinf(value):
+            raise MetricsError("observation must be finite")

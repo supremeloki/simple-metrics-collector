@@ -77,3 +77,5 @@ class MetricsCollector:
         self._gauges[name] = stamped
         return value
 
+    def observe(self, name: str, value: float) -> int:
+        if isinstance(value, bool) or not isinstance(value, (int, float)):

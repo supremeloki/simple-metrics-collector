@@ -82,3 +82,5 @@ class MetricsCollector:
             raise MetricsError(f"observation must be numeric, got {type(value).__name__}")
         if math.isnan(value) or math.isinf(value):
             raise MetricsError("observation must be finite")
+        self._histograms[name].append(float(value))
+        return len(self._histograms[name])

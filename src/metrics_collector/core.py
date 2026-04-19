@@ -84,3 +84,6 @@ class MetricsCollector:
             raise MetricsError("observation must be finite")
         self._histograms[name].append(float(value))
         return len(self._histograms[name])
+
+    @property
+    def metric_names(self) -> tuple[str, ...]:

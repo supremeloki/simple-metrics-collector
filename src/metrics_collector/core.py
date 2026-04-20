@@ -87,3 +87,5 @@ class MetricsCollector:
 
     @property
     def metric_names(self) -> tuple[str, ...]:
+        combined = set(self._counters) | set(self._gauges) | set(self._histograms)
+        return tuple(sorted(combined))

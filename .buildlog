@@ -34,3 +34,4 @@
 2026-02-27T23:06:47 wire async handlers pt2
 2026-04-19T19:10:57 add streaming path pt2
 2026-04-20T17:37:17 add cli entrypoint pt2
+2026-04-21T17:15:35 extend public api surface pt2

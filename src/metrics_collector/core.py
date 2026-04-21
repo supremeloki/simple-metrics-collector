@@ -89,3 +89,6 @@ class MetricsCollector:
     def metric_names(self) -> tuple[str, ...]:
         combined = set(self._counters) | set(self._gauges) | set(self._histograms)
         return tuple(sorted(combined))
+
+    def _require_histogram(self, name: str) -> list[float]:
+        if name not in self._histograms:

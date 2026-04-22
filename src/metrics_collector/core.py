@@ -92,3 +92,5 @@ class MetricsCollector:
 
     def _require_histogram(self, name: str) -> list[float]:
         if name not in self._histograms:
+            raise MetricTypeError(name, "histogram")
+        return self._histograms[name]

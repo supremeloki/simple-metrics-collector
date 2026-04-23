@@ -94,3 +94,6 @@ class MetricsCollector:
         if name not in self._histograms:
             raise MetricTypeError(name, "histogram")
         return self._histograms[name]
+
+    def counter_summary(self, name: str) -> CounterSummary:
+        if name not in self._counters:

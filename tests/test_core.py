@@ -72,3 +72,5 @@ def test_non_numeric_observation_rejected(collector):
 
 
 def test_nan_inf_rejected(collector):
+    with pytest.raises(MetricsError):
+        collector.observe("x", float("nan"))

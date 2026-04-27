@@ -76,3 +76,5 @@ def test_nan_inf_rejected(collector):
         collector.observe("x", float("nan"))
     with pytest.raises(MetricsError):
         collector.observe("x", float("inf"))
+
+

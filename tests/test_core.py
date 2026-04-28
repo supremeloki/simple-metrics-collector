@@ -78,3 +78,5 @@ def test_nan_inf_rejected(collector):
         collector.observe("x", float("inf"))
 
 
+def test_wrong_kind_access_raises(collector):
+    collector.inc("only_counter")

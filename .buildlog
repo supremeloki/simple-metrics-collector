@@ -42,3 +42,4 @@
 2026-04-26T18:18:23 add cli entrypoint pt2
 2026-04-27T11:17:14 add streaming path pt2
 2026-04-28T14:58:33 cover error branches
+2026-04-29T09:16:13 fix off-by-one in chunker

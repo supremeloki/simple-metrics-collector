@@ -83,3 +83,5 @@ def test_wrong_kind_access_raises(collector):
     with pytest.raises(MetricTypeError):
         collector.histogram_summary("only_counter")
     with pytest.raises(MetricTypeError):
+        collector.gauge_summary("only_counter")
+

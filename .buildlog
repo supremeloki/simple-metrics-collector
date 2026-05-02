@@ -45,3 +45,4 @@
 2026-04-29T09:16:13 fix off-by-one in chunker
 2026-04-30T21:25:44 expand unit coverage
 2026-05-01T21:53:07 test grouping edge cases
+2026-05-02T10:20:44 fix flaky ordering in tests

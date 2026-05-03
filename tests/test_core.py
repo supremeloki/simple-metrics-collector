@@ -87,3 +87,5 @@ def test_wrong_kind_access_raises(collector):
 
 
 def test_empty_histogram_raises(collector):
+    collector._histograms["empty"] = []
+    with pytest.raises(MetricsError):

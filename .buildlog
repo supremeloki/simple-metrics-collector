@@ -48,3 +48,4 @@
 2026-05-02T10:20:44 fix flaky ordering in tests
 2026-05-03T20:05:22 guard against missing header row
 2026-05-04T17:43:06 test streaming backpressure
+2026-05-05T14:50:36 regression test for parser

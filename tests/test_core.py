@@ -91,3 +91,5 @@ def test_empty_histogram_raises(collector):
     with pytest.raises(MetricsError):
         collector.histogram_summary("empty")
 
+
+def test_snapshot_groups_by_kind(collector):

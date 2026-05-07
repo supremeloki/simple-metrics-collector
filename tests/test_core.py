@@ -96,3 +96,5 @@ def test_snapshot_groups_by_kind(collector):
     collector.inc("hits")
     collector.gauge("temp", 3)
     collector.observe("times", 5)
+    snapshot = collector.snapshot()
+    assert snapshot["hits"]["kind"] == "counter"

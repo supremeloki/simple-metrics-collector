@@ -95,3 +95,4 @@ def test_empty_histogram_raises(collector):
 def test_snapshot_groups_by_kind(collector):
     collector.inc("hits")
     collector.gauge("temp", 3)
+    collector.observe("times", 5)

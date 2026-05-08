@@ -98,3 +98,5 @@ def test_snapshot_groups_by_kind(collector):
     collector.observe("times", 5)
     snapshot = collector.snapshot()
     assert snapshot["hits"]["kind"] == "counter"
+    assert snapshot["temp"]["kind"] == "gauge"
+    assert snapshot["times"]["kind"] == "histogram"

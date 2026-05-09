@@ -100,3 +100,5 @@ def test_snapshot_groups_by_kind(collector):
     assert snapshot["hits"]["kind"] == "counter"
     assert snapshot["temp"]["kind"] == "gauge"
     assert snapshot["times"]["kind"] == "histogram"
+    assert snapshot["times"]["p95"] >= snapshot["times"]["mean"]
+

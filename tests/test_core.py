@@ -102,3 +102,5 @@ def test_snapshot_groups_by_kind(collector):
     assert snapshot["times"]["kind"] == "histogram"
     assert snapshot["times"]["p95"] >= snapshot["times"]["mean"]
 
+
+def test_reset_single_and_all(collector):

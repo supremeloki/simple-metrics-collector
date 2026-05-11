@@ -104,3 +104,5 @@ def test_snapshot_groups_by_kind(collector):
 
 
 def test_reset_single_and_all(collector):
+    collector.inc("a")
+    collector.inc("b")

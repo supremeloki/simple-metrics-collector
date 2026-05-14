@@ -109,3 +109,5 @@ def test_reset_single_and_all(collector):
     collector.reset("a")
     assert "a" not in collector.metric_names
     assert "b" in collector.metric_names
+    collector.reset()
+    assert collector.metric_names == ()

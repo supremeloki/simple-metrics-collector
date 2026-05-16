@@ -113,3 +113,5 @@ def test_reset_single_and_all(collector):
     assert collector.metric_names == ()
 
 
+def test_reset_unknown_raises(collector):
+    with pytest.raises(Exception):

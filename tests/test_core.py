@@ -115,3 +115,5 @@ def test_reset_single_and_all(collector):
 
 def test_reset_unknown_raises(collector):
     with pytest.raises(Exception):
+        collector.reset("ghost")
+

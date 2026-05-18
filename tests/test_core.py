@@ -117,3 +117,5 @@ def test_reset_unknown_raises(collector):
     with pytest.raises(Exception):
         collector.reset("ghost")
 
+
+def test_metric_names_sorted_union(collector):

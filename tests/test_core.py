@@ -119,3 +119,5 @@ def test_reset_unknown_raises(collector):
 
 
 def test_metric_names_sorted_union(collector):
+    collector.inc("zeta")
+    collector.gauge("alpha", 1)

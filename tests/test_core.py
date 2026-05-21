@@ -122,3 +122,5 @@ def test_metric_names_sorted_union(collector):
     collector.inc("zeta")
     collector.gauge("alpha", 1)
     collector.observe("mid", 1)
+    names = collector.metric_names
+    assert list(names) == sorted(names)

@@ -97,3 +97,76 @@ class MetricsCollector:
 
     def counter_summary(self, name: str) -> CounterSummary:
         if name not in self._counters:
+            raise MetricTypeError(name, "counter")
+        return CounterSummary(name=name, value=self._counters[name])
+
+    def gauge_summary(self, name: str) -> GaugeSummary:
+        entry = self._gauges.get(name)
+        if entry is None:
+            raise MetricTypeError(name, "gauge")
+        return GaugeSummary(name=name, value=entry[0], last_updated_at=entry[1])
+
+    def histogram_summary(self, name: str) -> HistogramSummary:
+        values = sorted(self._require_histogram(name))
+        if not values:
+            raise MetricsError(f"histogram {name!r} has no observations")
+        count = len(values)
+        total = sum(values)
+        return HistogramSummary(
+            name=name,
+            count=count,
+            total=round(total, 6),
+            mean=round(total / count, 6),
+            median=round(_percentile(values, 50), 6),
+            p95=round(_percentile(values, 95), 6),
+            p99=round(_percentile(values, 99), 6),
+            minimum=values[0],
+            maximum=values[-1],
+        )
+
+    def snapshot(self) -> dict[str, dict]:
+        output: dict[str, dict] = {}
+        for name in sorted(set(self._counters)):
+            summary = self.counter_summary(name)
+            output[name] = {"kind": summary.kind, "value": summary.value}
+        for name in sorted(self._gauges):
+            summary = self.gauge_summary(name)
+            output[name] = {"kind": summary.kind, "value": summary.value}
+        for name in sorted(self._histograms):
+            if not self._histograms[name]:
+                continue
+            summary = self.histogram_summary(name)
+            output[name] = {
+                "kind": summary.kind,
+                "count": summary.count,
+                "mean": summary.mean,
+                "p95": summary.p95,
+                "p99": summary.p99,
+            }
+        return output
+
+    def reset(self, name: str | None = None) -> None:
+        if name is None:
+            self._counters.clear()
+            self._gauges.clear()
+            self._histograms.clear()
+            return
+        removed_any = False
+        for store in (self._counters, self._gauges, self._histograms):
+            if name in store:
+                del store[name]
+                removed_any = True
+        if not removed_any:
+            raise UnknownMetricError(name)
+
+
+def _percentile(sorted_values: list[float], percentile: float) -> float:
+    if not sorted_values:
+        raise ValueError("empty values")
+    rank = (len(sorted_values) - 1) * (percentile / 100.0)
+    lower = math.floor(rank)
+    upper = math.ceil(rank)
+    if lower == upper:
+        return sorted_values[int(rank)]
+    weight = rank - lower
+    return sorted_values[lower] * (1.0 - weight) + sorted_values[upper] * weight
